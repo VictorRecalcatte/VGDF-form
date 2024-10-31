@@ -115,6 +115,10 @@ const setoutraocupacao = (event) => {
   // Função para lidar com o envio do formulário
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if(formData.senha !== 'vgdfcadastro'){
+      alert('Senha Incorreta! Por favor, digite a senha correta.');
+      return;
+    }
 
     //formata data de nascimento para o padrao brasileiro
     const dataParts = formData.data_de_nascimento.split('-');
@@ -281,8 +285,22 @@ const setoutraocupacao = (event) => {
             <label>Origem:</label>
           </div>
 
-          <button type="submit">Enviar formulário</button> 
+          
          
+
+          <div class = "form-group">
+            <input 
+              type="password" 
+              name="senha" 
+              value={formData.senha} 
+              onChange={handleChange} 
+              placeholder="Digite a senha para enviar o formulário" 
+            /> 
+            <label>Senha:</label>
+          </div>
+
+          <button type="submit">Enviar formulário</button> 
+
         </form>
       </main>
     </>
